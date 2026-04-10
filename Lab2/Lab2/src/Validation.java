@@ -33,10 +33,10 @@ public class Validation {
     public static int inputMark(Scanner input, String prompt) {
         while (true) {
             int value = inputInteger(input, prompt);
-            if (value >= 1 && value <= 5) {
+            if (value >= 2 && value <= 5) {
                 return value;
             }
-            System.out.println("Оценка должна быть от 1 до 5");
+            System.out.println("Оценка должна быть от 2 до 5");
         }
     }
 
@@ -44,11 +44,18 @@ public class Validation {
     public static String inputString(Scanner input, String prompt) {
         System.out.print(prompt);
         String value = input.nextLine();
-        while (value.isEmpty()) {
-            System.out.println("Ошибка: строка не может быть пустой. Повторите ввод.");
+
+        while (value.isEmpty() || value.matches(".*\\d.*")) {
+            if (value.isEmpty()) {
+                System.out.println("Ошибка: строка не может быть пустой. Повторите ввод.");
+            } else {
+                System.out.println("Ошибка: строка не должна содержать цифры. Повторите ввод.");
+            }
+
             System.out.print(prompt);
             value = input.nextLine();
         }
+
         return value;
     }
 }

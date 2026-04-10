@@ -3,7 +3,7 @@ public class Line {
     private Point startPoint;
     private Point endPoint;
 
-    //FIX_ME: конструктор по умолчанию ломает инварианты
+    //FIX_ME: конструктор по умолчанию ломает код
     //public Line() {
     //    this.startPoint = new Point(0,0);
     //    this.endPoint = new Point(0,0);
